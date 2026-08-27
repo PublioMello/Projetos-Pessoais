@@ -4,6 +4,7 @@ import Body from "./MainPage/Body/Body.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PokemonPage from "./components/PokemonPage/PokemonPage.jsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+import TypesPage from "./components/TypesPage/TypesPage.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<Body />} />
         <Route path="/pokemon/:id" element={<PokemonPage />} />
+        <Route path="/types/:type" element={<TypesPage />} />
         <Route path="/erro" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

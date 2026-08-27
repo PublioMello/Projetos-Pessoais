@@ -41,7 +41,7 @@ const Head = () => {
               ))}
             </ul>
           </li>
-          <li className="head__menu">
+          {/* <li className="head__menu">
             <button
               type="button"
               className="head__menu-trigger"
@@ -59,7 +59,7 @@ const Head = () => {
                 </li>
               ))}
             </ul>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>
