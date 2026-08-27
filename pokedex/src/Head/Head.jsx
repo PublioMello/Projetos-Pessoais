@@ -4,9 +4,8 @@ import "./head.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Head = () => {
-  const navigate = useNavigate();
-  const tipos = ["Fogo", "Planta", "Inseto", "Água"];
-  const jogos = ["Red", "Yellow", "Silver", "Sapphire"];
+  const types = ["Fire", "Plant", "Insect", "Water"];
+  const games = ["Red", "Yellow", "Silver", "Sapphire"];
   const [menuAberto, setMenuAberto] = useState(null);
 
   function alternarMenu(menu) {
@@ -17,7 +16,7 @@ const Head = () => {
     <header className="head">
       <div className="head__left">
         <Link to="/">
-          <img src={pokemonLogo} alt="Logo do pokemon" className="head-logo" />
+          <img src={pokemonLogo} alt="Pokemon Logo" className="head-logo" />
         </Link>
       </div>
       <nav className="head__right" aria-label="Filtros da Pokédex">
@@ -26,17 +25,17 @@ const Head = () => {
             <button
               type="button"
               className="head__menu-trigger"
-              onClick={() => alternarMenu("tipos")}
-              aria-expanded={menuAberto === "tipos"}
+              onClick={() => alternarMenu("types")}
+              aria-expanded={menuAberto === "types"}
             >
-              Tipos <span>⌄</span>
+              Types <span>⌄</span>
             </button>
             <ul
-              className={`head__submenu ${menuAberto === "tipos" ? "is-open" : ""}`}
+              className={`head__submenu ${menuAberto === "types" ? "is-open" : ""}`}
             >
-              {tipos.map((tipo) => (
-                <li key={tipo}>
-                  <button type="button">{tipo}</button>
+              {types.map((type) => (
+                <li key={type}>
+                  <button type="button">{type}</button>
                 </li>
               ))}
             </ul>
@@ -45,15 +44,15 @@ const Head = () => {
             <button
               type="button"
               className="head__menu-trigger"
-              onClick={() => alternarMenu("jogos")}
-              aria-expanded={menuAberto === "jogos"}
+              onClick={() => alternarMenu("games")}
+              aria-expanded={menuAberto === "games"}
             >
-              Jogos <span>⌄</span>
+              Games <span>⌄</span>
             </button>
             <ul
-              className={`head__submenu ${menuAberto === "jogos" ? "is-open" : ""}`}
+              className={`head__submenu ${menuAberto === "games" ? "is-open" : ""}`}
             >
-              {jogos.map((jogo) => (
+              {games.map((jogo) => (
                 <li key={jogo}>
                   <button type="button">{jogo}</button>
                 </li>

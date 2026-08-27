@@ -17,7 +17,7 @@ function Body() {
     const value = search.trim();
     if (!value) {
       // Se o campo estiver vazio, não faz fetch
-      setError("Digite o nome de um Pokémon para pesquisar.");
+      setError("Write the name of the Pokemon you want to search");
       setPokemon(null);
       return;
     }
@@ -39,7 +39,7 @@ function Body() {
     } catch (err) {
       // Se a busca falhar, limpa o card e mostra mensagem
       setPokemon(null);
-      setError("Pokémon não encontrado. Tente outro nome.");
+      setError("Pokémon Not Found. Try a different name");
     }
   }
 
@@ -47,7 +47,7 @@ function Body() {
     <main className="page-shell">
       <section className="search-panel">
         <p className="eyebrow">Pokédex</p>
-        <h1>Encontre seu Pokémon favorito</h1>
+        <h1> Find your favorite Pokemon</h1>
 
         <form className="search-form" onSubmit={searchPokemon}>
           <input
@@ -55,11 +55,11 @@ function Body() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Digite um Pokémon"
+            placeholder="Search the pokemon"
             aria-label="Buscar pokémon"
           />
           <button className="search-button" type="submit">
-            Buscar
+            Search
           </button>
         </form>
 

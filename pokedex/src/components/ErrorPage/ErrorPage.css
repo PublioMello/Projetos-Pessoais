@@ -1,0 +1,113 @@
+.error-page {
+  display: grid;
+  min-height: calc(100vh - 92px);
+  place-items: center;
+  padding: 48px 20px 72px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.9), transparent 32%),
+    linear-gradient(180deg, #eef3f8 0%, #e3ebf5 100%);
+}
+
+.error-page__content {
+  width: min(640px, 100%);
+  padding: clamp(32px, 7vw, 68px) clamp(24px, 7vw, 76px);
+  border: 1px solid rgba(23, 32, 51, 0.1);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 55px rgba(42, 54, 75, 0.12);
+  text-align: center;
+}
+
+.error-page__mark {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 24px;
+  place-items: center;
+  border: 7px solid #2b2d42;
+  border-radius: 50%;
+  background: linear-gradient(#ef233c 0 45%, #fff 45% 55%, #edf2f7 55%);
+  box-shadow: 0 12px 20px rgba(42, 45, 66, 0.18);
+}
+
+.error-page__mark::after {
+  width: 22px;
+  height: 22px;
+  border: 6px solid #2b2d42;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.error-page__eyebrow {
+  margin-bottom: 12px;
+  color: #e63946;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.error-page h1 {
+  margin-bottom: 14px;
+  color: #172033;
+  font-size: clamp(2.2rem, 7vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.error-page__message {
+  max-width: 430px;
+  margin: 0 auto 28px;
+  color: #667085;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.error-page__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.error-page__button {
+  min-height: 46px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 12px;
+  background: #e63946;
+  color: #fff;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(230, 57, 70, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.error-page__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 22px rgba(230, 57, 70, 0.28);
+}
+
+.error-page__button--secondary {
+  border: 1px solid rgba(23, 32, 51, 0.16);
+  background: #fff;
+  color: #172033;
+  box-shadow: none;
+}
+
+.error-page__button--secondary:hover {
+  box-shadow: 0 8px 16px rgba(42, 54, 75, 0.1);
+}
+
+@media (max-width: 480px) {
+  .error-page__actions {
+    display: grid;
+  }
+
+  .error-page__button {
+    width: 100%;
+  }
+}

@@ -4,11 +4,11 @@ import "./PokemonPage.css";
 
 const statLabels = {
   hp: "HP",
-  attack: "Ataque",
-  defense: "Defesa",
-  "special-attack": "Ataque especial",
-  "special-defense": "Defesa especial",
-  speed: "Velocidade",
+  attack: "Atack",
+  defense: "Deffense",
+  "special-attack": "Sspecial Attack",
+  "special-defense": "Special deffense",
+  speed: "Speed",
 };
 
 function formatName(name = "") {
