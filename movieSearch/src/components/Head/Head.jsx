@@ -8,7 +8,16 @@ function Head() {
       <img src={poster} alt="Filme" className="hero-image" />
 
       <div className="hero-content">
-        <h1>PublioSearchMovies</h1>
+        <h1 className="hero-title">PublioSearchMovies</h1>
+
+        <div className="hero-search-wrap">
+          <input
+            type="text"
+            className="hero-search"
+            placeholder="Search Movie..."
+            aria-label="Search Movie"
+          />
+        </div>
       </div>
     </header>
   );
