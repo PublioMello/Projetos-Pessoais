@@ -2,7 +2,7 @@ import React from "react";
 import "./Head.css";
 import poster from "../../assets/cinema.jpg";
 
-function Head() {
+function Head({ query = "", onQueryChange }) {
   return (
     <header className="hero">
       <img src={poster} alt="Filme" className="hero-image" />
@@ -16,6 +16,8 @@ function Head() {
             className="hero-search"
             placeholder="Search Movie..."
             aria-label="Search Movie"
+            value={query}
+            onChange={(event) => onQueryChange?.(event.target.value)}
           />
         </div>
       </div>

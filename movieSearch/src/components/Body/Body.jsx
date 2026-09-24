@@ -1,10 +1,14 @@
 import React from "react";
 
-function Body({ movies = [] }) {
+function Body({ movies = [], loading = false, error = null }) {
   return (
     <div>
-      {movies.length === 0 ? (
+      {error ? (
+        <p>{error}</p>
+      ) : loading ? (
         <p>Loading movies...</p>
+      ) : movies.length === 0 ? (
+        <p>Nenhum filme encontrado.</p>
       ) : (
         movies.map((movie) => (
           <div key={movie.id}>
