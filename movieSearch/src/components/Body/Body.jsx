@@ -1,29 +1,24 @@
 import React from "react";
+import Card from "../Card/Card";
 
 function Body({ movies = [], loading = false, error = null }) {
+  if (error) return <p className="movie-status">{error}</p>;
+  if (loading) return <p className="movie-status">Loading movies...</p>;
+  if (movies.length === 0)
+    return <p className="movie-status">Nenhum filme encontrado.</p>;
+
   return (
-    <div>
-      {error ? (
-        <p>{error}</p>
-      ) : loading ? (
-        <p>Loading movies...</p>
-      ) : movies.length === 0 ? (
-        <p>Nenhum filme encontrado.</p>
-      ) : (
-        movies.map((movie) => (
-          <div key={movie.id}>
-            <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
-            {movie.poster_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                width={200}
-              />
-            )}
-          </div>
-        ))
-      )}
+    <div className="movie-grid">
+      {movies.map((movie) => (
+        <Card
+          key={movie.id}
+          title={movie.title}
+          poster={movie.poster_path}
+          overView={movie.overview}
+          rating={movie.vote_average}
+          releaseDate={movie.release_date}
+        />
+      ))}
     </div>
   );
 }

@@ -1,58 +1,145 @@
+/* Reset básico: remove espaçamentos padrão do navegador */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-.hero {
-  position: relative;
-  height: 100px;
-  overflow: hidden;
+/* Fundo escuro na página inteira para combinar com os cards */
+body {
+  background: #0f1117;
+  color: #e5e7eb;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
+/* Cabeçalho fixo no topo enquanto a página rola */
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 120px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagem de fundo cobrindo todo o cabeçalho */
 .hero-image {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero-content {
+/* Gradiente escuro por cima da imagem, que termina na cor do fundo
+   da página para a transição ficar suave */
+.hero-overlay {
   position: absolute;
   inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 17, 23, 0.95) 0%,
+    rgba(15, 17, 23, 0.7) 50%,
+    rgba(15, 17, 23, 0.95) 100%
+  );
+  backdrop-filter: blur(2px);
+}
+
+/* Conteúdo (logo + busca) fica acima da imagem e do gradiente */
+.hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0 2rem;
-  z-index: 1;
+  gap: 1.5rem;
+  height: 100%;
+  padding: 0 24px; /* mesmo padding lateral do grid de cards */
 }
 
 .hero-title {
-  color: rgb(171, 49, 49);
-  font-size: 30px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  color: #f9fafb;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
-.hero-search-wrap {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+/* "Search" em amarelo, a mesma cor do selo de nota dos cards */
+.hero-title-accent {
+  color: #facc15;
 }
 
+/* Wrapper com position relative para posicionar o ícone da lupa */
+.hero-search-wrap {
+  position: relative;
+  width: min(420px, 50vw);
+}
+
+.hero-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  fill: none;
+  stroke: #9ca3af;
+  stroke-width: 2;
+  stroke-linecap: round;
+  pointer-events: none; /* clique passa direto para o input */
+}
+
+/* Campo de busca em formato de pílula, com o mesmo fundo dos cards */
 .hero-search {
-  width: min(420px, 55vw);
-  padding: 0.7rem 1rem;
-  border: none;
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem; /* espaço à esquerda para a lupa */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  color: #222;
+  background: rgba(26, 29, 36, 0.85);
+  color: #f9fafb;
   font-size: 1rem;
   outline: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .hero-search::placeholder {
-  color: #555;
+  color: #6b7280;
+}
+
+/* Ao focar, a borda fica amarela com um brilho suave */
+.hero-search:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+/* Em telas pequenas, logo e busca ficam um embaixo do outro */
+@media (max-width: 640px) {
+  .hero {
+    height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 16px;
+  }
+
+  .hero-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .hero-search-wrap {
+    width: 100%;
+  }
 }
