@@ -5,18 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Fundo escuro na página inteira para combinar com os cards */
-body {
-  background: #0f1117;
-  color: #e5e7eb;
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
-}
-
 /* Cabeçalho fixo no topo enquanto a página rola */
 .hero {
   position: sticky;

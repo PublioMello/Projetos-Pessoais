@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../Card/Card";
+import "./Body.css";
 
 function Body({ movies = [], loading = false, error = null }) {
   if (error) return <p className="movie-status">{error}</p>;
