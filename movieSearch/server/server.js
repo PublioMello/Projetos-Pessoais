@@ -43,10 +43,11 @@ app.get("/api/movies", async (req, res) => {
   }
 });
 
-app.get("/api/search", async (req, res) => {
+app.get("/api/movies/search", async (req, res) => {
+  const { query } = req.query;
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.MOVIE_KEY_API}&query=${searched_movie}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_KEY_API}&query=${encodeURIComponent(query)}`,
     );
     if (!response.ok) {
       throw new Error("Error searching movie");
