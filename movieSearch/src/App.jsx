@@ -28,7 +28,7 @@ function App() {
         .catch((error) => {
           if (error.name !== "AbortError") {
             console.error("Error searching movies:", error);
-            setError("Não foi possível carregar os filmes. O backend está rodando?");
+            setError("It wasn't possible to load the movies.");
           }
         })
         .finally(() => setLoading(false));
