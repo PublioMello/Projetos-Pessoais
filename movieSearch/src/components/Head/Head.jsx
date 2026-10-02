@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Head.css";
 import poster from "../../assets/cinema.jpg";
 
 // Cabeçalho com imagem de fundo, logo e campo de busca
 function Head({ query = "", onQueryChange }) {
+  const [activeTab, setActiveTab] = useState("");
   return (
     <header className="hero">
       {/* Imagem decorativa, por isso o alt vazio */}
@@ -16,7 +17,17 @@ function Head({ query = "", onQueryChange }) {
         <h1 className="hero-title">
           Publio<span className="hero-title-accent">Search</span>Movies
         </h1>
-
+        <div className="hero-subtitle">
+          {["Movies", "Series", "People"].map((tab) => (
+            <p
+              key={tab}
+              className={activeTab === tab ? "is-active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </p>
+          ))}
+        </div>
         <div className="hero-search-wrap">
           {/* Ícone de lupa desenhado em SVG, posicionado dentro do input */}
           <svg

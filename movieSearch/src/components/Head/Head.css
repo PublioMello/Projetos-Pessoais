@@ -63,6 +63,32 @@
 .hero-title-accent {
   color: #facc15;
 }
+.hero-subtitle {
+  display: flex;
+  gap: 1rem;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(26, 29, 36, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.hero-subtitle p {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+.hero-subtitle p.is-active {
+  background: #facc15;
+  color: #0f1117;
+  box-shadow: 0 2px 10px rgba(250, 204, 21, 0.35);
+}
+
+/* Fundo amarelo ao passar o mouse */
+.hero-subtitle p:hover {
+  background: #facc15;
+  color: #0f1117;
+}
 
 /* Wrapper com position relative para posicionar o ícone da lupa */
 .hero-search-wrap {
